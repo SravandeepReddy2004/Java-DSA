@@ -1,1 +1,1 @@
-## LeetSync & Practice
+# LeetSync
