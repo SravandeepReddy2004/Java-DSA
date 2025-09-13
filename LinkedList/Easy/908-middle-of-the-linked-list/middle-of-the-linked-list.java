@@ -13,7 +13,7 @@ class Solution {
         // Initialize two pointers
         ListNode slow = head;
         ListNode fast = head;
-        while (fast != null && fast.next != null&& slow != null) {
+        while (fast != null && fast.next != null) {
             fast = fast.next.next;// Move fast by 2 steps and slow by 1 step
             slow = slow.next;
         }
