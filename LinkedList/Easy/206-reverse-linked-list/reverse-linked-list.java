@@ -22,3 +22,21 @@ class Solution {
 }
 //By the end, head becomes null (since you reached the end of the list).
 //But you haven’t “destroyed” the list, because while moving, you were relinking nodes to point backwards, and keeping track of the reversed list with prev.
+
+/*class Solution {
+    public ListNode reverseList(ListNode head) {
+        // Base case: empty list or single node
+        if (head == null || head.next == null) {
+            return head;
+        }
+        
+        // Recursively reverse the rest of the list
+        ListNode newHead = reverseList(head.next);
+        
+        // Reverse the current node's pointer
+        head.next.next = head;
+        head.next = null;
+        
+        return newHead;
+    }
+}*/
