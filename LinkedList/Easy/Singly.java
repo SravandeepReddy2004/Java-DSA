@@ -47,18 +47,7 @@ class Singly{
         newNode.next=curr.next;
         curr.next=newNode;
     }
-    public void printLL(){
-        if(head==null){
-            System.out.println("LL is empty");
-            return;
-        }
-        Node curr=head;
-        while(curr!=null){
-            System.out.print(curr.data+"->");
-            curr=curr.next;
-        }
-        System.out.println("null");
-    }
+
     public void deletefirst(){
         if(head==null){
             return;
@@ -93,6 +82,20 @@ class Singly{
         }
         curr.next=curr.next.next;
     }
+
+    public void printLL(){
+        if(head==null){
+            System.out.println("LL is empty");
+            return;
+        }
+        Node curr=head;
+        while(curr!=null){
+            System.out.print(curr.data+"->");
+            curr=curr.next;
+        }
+        System.out.println("null");
+    }
+
     public int count(){
         if(head==null){
             return 0;
