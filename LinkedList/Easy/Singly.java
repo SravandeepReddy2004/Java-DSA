@@ -8,6 +8,7 @@ class Singly{
             data=d;
         }
     }
+    
     public void addfirst(int data){
         Node newNode=new Node(data);
         if(head==null){
