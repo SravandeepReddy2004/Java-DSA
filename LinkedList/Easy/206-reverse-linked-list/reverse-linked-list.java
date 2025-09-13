@@ -17,6 +17,8 @@ class Solution {
             prev=head;       // move prev forward
             head=front;   // move curr forward
         }
-        return prev;
+        return prev; //After the loop, prev becomes the new head.
     }
 }
+//By the end, head becomes null (since you reached the end of the list).
+//But you haven’t “destroyed” the list, because while moving, you were relinking nodes to point backwards, and keeping track of the reversed list with prev.
