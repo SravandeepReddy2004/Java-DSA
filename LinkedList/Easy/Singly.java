@@ -111,8 +111,9 @@ class Singly{
     public boolean search(int x){
         Node curr=head;
         while(curr!=null){
-            if(curr.data==x)
-            return true;
+            if(curr.data==x){
+               return true;
+            }
             curr=curr.next;
         }
         return false;
