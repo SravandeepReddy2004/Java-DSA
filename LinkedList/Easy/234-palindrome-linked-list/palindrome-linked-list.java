@@ -27,10 +27,10 @@ class Solution {
         }
         ListNode first=head,second=prev;
         while(second!=null){ 
-            if(first.val!=second.val) return false; //Compare Both Halves
+            if(first.val!=second.val) return false; //Compare Both Halves,as pali always "=="
             first=first.next;
             second=second.next;
         }
-        return true;
+        return true; // If no mismatches are found, all pairs match, so return true.
     }
 }
