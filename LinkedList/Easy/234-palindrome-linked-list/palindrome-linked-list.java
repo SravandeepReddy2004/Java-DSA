@@ -18,7 +18,7 @@ class Solution {
             fast=fast.next.next;
             slow=slow.next;
         }
-        ListNode prev=null,curr=slow;
+        ListNode prev=null,curr=slow; //Reverse the Second Half
         while(curr!=null){
             ListNode front=curr.next;
             curr.next=prev;
@@ -26,8 +26,8 @@ class Solution {
             curr=front;
         }
         ListNode first=head,second=prev;
-        while(second!=null){
-            if(first.val!=second.val) return false;
+        while(second!=null){ 
+            if(first.val!=second.val) return false; //Compare Both Halves
             first=first.next;
             second=second.next;
         }
