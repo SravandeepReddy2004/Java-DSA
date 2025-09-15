@@ -9,28 +9,30 @@
  * }
  */
 class Solution {
-    private int len(ListNode head){
-        if(head==null){
-            return 0;
-        }
-        ListNode temp=head;
-        int c=0;
-        while(temp!=null){
+    private int len(ListNode head) {
+        int c = 0;
+        while (head != null) {
             c++;
-            temp=temp.next;
+            head = head.next;
         }
         return c;
     }
     public ListNode deleteMiddle(ListNode head) {
-        if(head==null||head.next==null){
-            return null;
+        if (head == null || head.next == null) {
+            return null; // if there is 0 or 1 node, return null
         }
-        ListNode temp=head;
-        int n=len(head);
-        for(int i=0;i<((n/2)-1)&&temp!=null;i++){
-            temp=temp.next;
+
+        int mid = len(head) / 2; // find mid
+        ListNode temp = head;
+
+        // stop exactly at the node before mid
+        for (int i = 0; i < mid - 1; i++) {
+            temp = temp.next;
         }
-        temp.next=temp.next.next;
+
+        // remove middle node
+        temp.next = temp.next.next;
+
         return head;
     }
 }
