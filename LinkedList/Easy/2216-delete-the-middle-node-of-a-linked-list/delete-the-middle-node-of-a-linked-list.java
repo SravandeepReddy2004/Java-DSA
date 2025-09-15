@@ -13,16 +13,17 @@ class Solution {
         if (head == null || head.next == null) {
             return null;
         }
-        ListNode fast=head,slow=head;
-        while(fast!=null&&fast.next!=null){
-            fast=fast.next.next;
-            slow=slow.next;
+        ListNode fast = head;
+        ListNode slow = head;
+        ListNode prev = null; // track node before slow
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            prev = slow;      // update prev
+            slow = slow.next; // move slow
         }
-        ListNode temp=head;
-        while(temp.next!=slow){
-            temp = temp.next;
-        }
-        temp.next = temp.next.next;
+        prev.next = slow.next; // unlink middle
+
         return head;
     }
 }
+
