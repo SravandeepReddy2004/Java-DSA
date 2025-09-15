@@ -9,36 +9,18 @@
  * }
  */
 class Solution {
-    public int count(ListNode head) {
-        int c = 0;
-        ListNode temp = head;
-        while (temp != null) {
-            c++;
-            temp = temp.next;
-        }
-        return c;
-    }
-
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        int c = count(head);
-        int pos = c - n;
-
-        // Use dummy to simplify head removal
-        ListNode dummy = new ListNode(-1);
-        dummy.next = head;
-        ListNode temp = dummy;
-
-        for (int i = 0; i < pos&&temp!=null; i++) {
-            temp = temp.next;
+        ListNode start=new ListNode(0);
+        start.next=head; //link to head anyway we gonna print start.next to avoid (0)
+        ListNode fast=start,slow=start; //0->1->2 ... start is 0
+        for(int i=1;i<=n+1;i++){ //from 1 till just after n as we need to traverse slow too
+            fast=fast.next; //as we know start is 0 so i=1 is taken
         }
-
-        temp.next = temp.next.next;  // skip target node
-        return dummy.next;           // return updated head
+        while(fast!=null){ //now from n+1 to null
+            fast=fast.next;
+            slow=slow.next; //slow moves too
+        }
+        slow.next=slow.next.next; //skip the slow.next which is nth
+        return start.next; //to avoid (0)
     }
 }
-// Input: head = [1], n = 1
-// c = 1, pos = 0
-// dummy → 1
-// Loop runs 0 times → temp = dummy
-// temp.next = temp.next.next → dummy skips 1 → null
-// Return dummy.next = null → list is now []
