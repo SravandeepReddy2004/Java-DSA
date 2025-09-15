@@ -16,11 +16,13 @@ class Solution {
         ListNode fast = head;
         ListNode slow = head;
         ListNode prev = null; // track node before slow
+
         while (fast != null && fast.next != null) {
             fast = fast.next.next;
             prev = slow;      // update prev
             slow = slow.next; // move slow
         }
+        
         prev.next = slow.next; // unlink middle
 
         return head;
