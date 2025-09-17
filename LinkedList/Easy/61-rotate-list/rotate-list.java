@@ -15,8 +15,8 @@ class Solution {
 
         // Step 1: Find the length of the list
         ListNode temp = head;
-        int len = 1;
-        while (temp.next != null) {
+        int len = 1;  //Start count at 1 because temp already points to the first node.
+        while (temp.next != null) {//Leaves temp at the tail node (useful for circular).
             len++;
             temp = temp.next;
         }
@@ -36,7 +36,7 @@ class Solution {
         // Step 5: The new head is temp.next
         head = temp.next;
 
-        // Step 6: Break the cycle
+        // Step 6: Break the circle
         temp.next = null;
 
         return head;
