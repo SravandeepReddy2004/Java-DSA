@@ -14,26 +14,32 @@ class Node {
 */
 
 class Solution {
-public Node copyRandomList(Node head) {
+    public Node copyRandomList(Node head) {
+        // Step 1: HashMap to map original nodes → copied nodes
+        HashMap<Node, Node> map = new HashMap<>();
 
-    // HashMap which holds old nodes as keys and new nodes as its values. 
-    HashMap<Node, Node> map = new HashMap<Node, Node>();
-    
-    //copy list nodes into hash table
-    Node p = head;
-    while(p != null){
-        map.put(p, new Node(p.val));
-        p = p.next;
+        // Step 2: First pass — create new nodes (just values)
+        Node p = head;
+        while (p != null) {
+            // copy only val now
+            map.put(p, new Node(p.val));
+            p = p.next;
+        }
+
+        // Step 3: Second pass — fix pointers
+        Node q = head;
+        while (q != null) {
+            // map.get(q) = copy of q
+            // set its next to copy of q.next
+            map.get(q).next = map.get(q.next);
+
+            // set its random to copy of q.random
+            map.get(q).random = map.get(q.random);
+
+            q = q.next;
+        }
+
+        // Step 4: return copy of head
+        return map.get(head);
     }
-    
-    //deep copy using hash table
-    Node q = head;
-    while(q != null){
-        map.get(q).next = map.get(q.next);
-        map.get(q).random = map.get(q.random);
-        q = q.next;
-    }
-    //return new head
-    return map.get(head);
-}
 }
