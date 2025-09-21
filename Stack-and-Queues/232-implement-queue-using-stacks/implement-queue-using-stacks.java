@@ -11,17 +11,17 @@ class MyQueue {
     // Push element to the back of queue
     public void push(int x) {
         // Move all elements from s1 → s2
-        while (!s1.isEmpty()) {
-            s2.push(s1.pop());
-        }
+        while (!s1.isEmpty()) { 
+            s2.push(s1.pop());      // take the top element from 's1' and put it on 's2'
+        }                       // this reverses the order of elements
 
         // Add new element to s1
         s1.push(x);
 
         // Move everything back from s2 → s1
         while (!s2.isEmpty()) {
-            s1.push(s2.pop());
-        }
+            s1.push(s2.pop());      // take the top element from 's2' and put it back on 's1'
+        }                       // this restores queue order (front stays at top of 's1')
     }
     
     // Remove element from the front
