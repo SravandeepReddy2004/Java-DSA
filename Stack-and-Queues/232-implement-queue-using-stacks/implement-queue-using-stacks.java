@@ -1,43 +1,41 @@
-class MyQueue {
-    private Stack<Integer> in;
-    private Stack<Integer> out;
+class MyQueue { 
+    private Stack<Integer> in;   // main stack (stores queue)
+    private Stack<Integer> out;  // helper stack (used during push)
+
+    // Constructor
     public MyQueue() {
-       in=new Stack<>();
-       out=new Stack<>();  
+       in = new Stack<>();
+       out = new Stack<>();  
     }
     
+    // Push element to the back of queue
     public void push(int x) {
-        while(!in.isEmpty()){
-            out.push(in.peek());
-            in.pop();
+        // Move all elements from in → out
+        while (!in.isEmpty()) {
+            out.push(in.pop());
         }
+
+        // Add new element to in
         in.push(x);
-        while(!out.isEmpty()){
-            in.push(out.peek());
-            out.pop();
+
+        // Move everything back from out → in
+        while (!out.isEmpty()) {
+            in.push(out.pop());
         }
     }
     
+    // Remove element from the front
     public int pop() {
-        int val=in.peek();
-        in.pop();
-        return val;
+        return in.pop(); // top of in is the front of queue
     }
     
+    // Get the front element
     public int peek() {
-        return in.peek();
+        return in.peek(); // top of in is the front
     }
     
+    // Check if queue is empty
     public boolean empty() {
         return in.isEmpty();
     }
 }
-
-/**
- * Your MyQueue object will be instantiated and called as such:
- * MyQueue obj = new MyQueue();
- * obj.push(x);
- * int param_2 = obj.pop();
- * int param_3 = obj.peek();
- * boolean param_4 = obj.empty();
- */
