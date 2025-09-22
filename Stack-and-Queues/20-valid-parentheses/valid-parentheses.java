@@ -8,8 +8,7 @@ class Solution {
             else{
                 if(stack.isEmpty()) return false;
                 char top=stack.pop();
-                if((ch==')'&&top=='(')||(ch==']'&&top=='[')||(ch=='}'&&top=='{')) continue;
-                else return false;
+                if((ch==')'&&top!='(')||(ch==']'&&top!='[')||(ch=='}'&&top!='{')) return false;
             }
         }
         return stack.isEmpty();
