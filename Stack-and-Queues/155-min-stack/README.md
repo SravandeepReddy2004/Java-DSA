@@ -1,3 +1,26 @@
+⚙️ Example Walkthrough
+ MinStack ms = new MinStack(); 
+
+ms.push(5);   // stack: [5], minStack: [5]
+
+ms.push(3);   // stack: [5, 3], minStack: [5, 3]
+
+ms.push(7);   // stack: [5, 3, 7], minStack: [5, 3]   (7 > 3, so no push in minStack)
+
+ms.push(2);   // stack: [5, 3, 7, 2], minStack: [5, 3, 2] 
+
+
+Now:
+
+getMin() → 2
+
+pop() → removes 2 → stack: [5, 3, 7], minStack: [5, 3] → min restored to 3
+
+top() → 7
+
+getMin() → 3
+
+---
 <h2><a href="https://leetcode.com/problems/min-stack">Min Stack</a></h2> <img src='https://img.shields.io/badge/Difficulty-Medium-orange' alt='Difficulty: Medium' /><hr><p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
 
 <p>Implement the <code>MinStack</code> class:</p>
