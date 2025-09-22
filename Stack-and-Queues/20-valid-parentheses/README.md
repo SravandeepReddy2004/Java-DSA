@@ -1,5 +1,4 @@
 🔹 Step-by-Step Example
-
 👉 Input:
 s = "{[()]}"
 
