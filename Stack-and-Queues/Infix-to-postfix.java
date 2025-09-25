@@ -1,7 +1,6 @@
-import java.util.Stack;
+import java.util.*;
 
-class TUF {
-
+class Infix-to-postfix{
   // A utility function to return
   // precedence of a given operator
   // Higher returned value means
