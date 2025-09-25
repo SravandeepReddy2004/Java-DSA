@@ -1,7 +1,6 @@
 import java.util.*;
 
-class TUF {
-
+class Infix-to-prefix{
     // Function to return precedence of operators
     static int Prec(char ch) {
         switch (ch) {
