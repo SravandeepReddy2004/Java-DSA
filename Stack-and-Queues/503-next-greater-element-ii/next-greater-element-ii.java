@@ -4,7 +4,7 @@ class Solution {
         int[] ans = new int[n];
 
         for (int i = 0; i < n; i++) {
-            ans[i] = -1;  // default value
+            ans[i] = -1;  // default if no greater element found
             // check next n-1 elements circularly
             for (int j = 1; j < n; j++) {
                 int nextIndex = (i + j) % n; // circular move
