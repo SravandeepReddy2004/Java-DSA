@@ -1,3 +1,55 @@
+🔹 Step 1: Precompute next greater elements (Monotonic Stack)
+
+We scan nums2 from right to left.
+
+A stack is used to keep only elements that are greater than the current number (monotonic decreasing stack).
+
+Example: nums2 = [1,3,4,2]
+
+Process from right → left:
+
+2: stack empty → nextGreater[2] = -1 → push(2).
+Stack = [2]
+
+4: stack top 2 ≤ 4 → pop(2). stack empty → nextGreater[4] = -1 → push(4).
+Stack = [4]
+
+3: stack top 4 > 3 → nextGreater[3] = 4 → push(3).
+Stack = [4,3]
+
+1: stack top 3 > 1 → nextGreater[1] = 3 → push(1).
+Stack = [4,3,1]
+
+✅ Final mapping:
+
+1 → 3
+2 → -1
+3 → 4
+4 → -1
+
+🔹 Step 2: Answer for nums1
+
+Now we simply lookup in nextGreater for each element of nums1.
+
+Example nums1 = [4,1,2] → results: [-1, 3, -1]
+
+🔹 Why is this O(n)?
+
+Each element in nums2 is pushed and popped at most once.
+
+So total work in the main loop is O(n).
+
+Building the answer for nums1 is also O(n).
+
+🔹 Key Idea
+
+Use stack to maintain "candidates for next greater".
+
+Use array/map (nextGreater[]) to store answers for fast lookup.
+
+Then just lookup for nums1.
+
+---
 <h2><a href="https://leetcode.com/problems/next-greater-element-i">Next Greater Element I</a></h2> <img src='https://img.shields.io/badge/Difficulty-Easy-brightgreen' alt='Difficulty: Easy' /><hr><p>The <strong>next greater element</strong> of some element <code>x</code> in an array is the <strong>first greater</strong> element that is <strong>to the right</strong> of <code>x</code> in the same array.</p>
 
 <p>You are given two <strong>distinct 0-indexed</strong> integer arrays <code>nums1</code> and <code>nums2</code>, where <code>nums1</code> is a subset of <code>nums2</code>.</p>
