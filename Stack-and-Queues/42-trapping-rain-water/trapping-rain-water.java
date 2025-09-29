@@ -1,28 +1,21 @@
+// Approach 3: Two-Pointer Approach (O(N) Time, O(1) Space)
 class Solution {
-    public int trap(int[] height) {
-        int n=height.length;
-        int left=0,right=n-1;
-        int lmax=0,rmax=0,total=0;
-        while(left<=right){
-            if(height[left]<=height[right]){
-                if(height[left]>=lmax){
-                    lmax=height[left];
-                }
-                else{
-                    total+=lmax-height[left];
-                }
-            left++;
-            }
-            else{
-                if(height[right]>=rmax){
-                    rmax=height[right];
-                }
-                else{
-                    total+=rmax-height[right];
-                }
-            right--;
+    public int trap(int[] arr) {
+        int l = 0, r = arr.length - 1;
+        int lmax = 0, rmax = 0, ans = 0;
+
+        while (l < r) {
+            lmax = Math.max(lmax, arr[l]);
+            rmax = Math.max(rmax, arr[r]);
+
+            if (lmax < rmax) {
+                ans += lmax - arr[l];
+                l++;
+            } else {
+                ans += rmax - arr[r];
+                r--;
             }
         }
-        return total;
+        return ans;
     }
 }
